@@ -1,0 +1,34 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.button{
+  border: 2px solid ;
+  color: white;
+  margin-left: 12px;
+  margin-bottom: 20px;
+}
+.todo-add {
+   background-color: blue;
+   border-color:blue;
+}
+.todo-delete {
+   background-color: red;
+   border-color:red;
+}
+.todo-inprogress {
+   background-color: orange;
+   border-color:orange;
+}
+.todo-complete {
+   background-color: green;
+   border-color:green;
+}
+
+.started{
+    color:orange;
+}
+.completed{
+    color:green;
+}
