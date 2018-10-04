@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import ReactDOM from "react-dom";
+import {Link} from "react-router-dom";
 import {ToDoContext} from '../toDoContext.js';
 
 import "../style.css";
@@ -8,6 +9,7 @@ import "../style.css";
 class ToDoItems extends React.Component {
   render() {
     return (
+        <Fragment>
       <ToDoContext.Consumer>
         {({ list, deleteItem,startItem, completeItem }) =>
           list.map((item, key) => {
@@ -21,7 +23,10 @@ class ToDoItems extends React.Component {
             );
           })
         }
+        
       </ToDoContext.Consumer>
+      <div className="link"> <Link className="nav-link active" to="/new" >Create new task </Link> </div>
+          </Fragment>
     );
   }
 }

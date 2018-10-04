@@ -11,8 +11,12 @@ class Header extends Component {
           </span>
           <div className="navbar-nav-scroll">
             <ul className="navbar-nav bd-navbar-nav flex-row">
+              
               <li className="nav-item">
                 <Link className="nav-link active" to="/" >Home</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link ml-4" to="/new" >New</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link ml-4" to="/inProgress">In Progress</Link>

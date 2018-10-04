@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import {ToDoContext} from '../toDoContext.js';
 
 class ToDoList extends Component {
@@ -8,13 +9,28 @@ class ToDoList extends Component {
     this.state = {
       list: [
         {
-          todo: "clean the house", 
+          todo: "Create todo app", 
           start:false,
           completed:false,
         },
         {
-          todo: "buy milk",
+          todo: "Write route based implementations",
           start:false,
+          completed:false,
+        },
+        {
+          todo: "Mention Completed tasks",
+          start:true,
+          completed:true,
+        },
+        {
+          todo: "Mention in progress tasks",
+          start:true,
+          completed:false,
+        },
+        {
+          todo: "Marks tasks differently",
+          start:true,
           completed:false,
         }
       ],
@@ -69,30 +85,26 @@ class ToDoList extends Component {
     });
   };
 
+
   render() {
     return (
       <ToDoContext.Provider
-        value={{ list: this.state.list, deleteItem: this.deleteItem, startItem: this.startItem, completeItem: this.completeItem }}
+        value={{ list: this.state.list, 
+                deleteItem: this.deleteItem, 
+                startItem: this.startItem, 
+                completeItem: this.completeItem,
+                createItem: this.createNewToDoItem,
+                handleInput:this.handleInput,
+                handleKeyPress:this.handleKeyPress
+        }}
       >
-        <div className="ToDo">
-          <h1 className="ToDo-Header">
+        <h1 className="ToDo-Header">
             Simple To-Do App using React Context API
           </h1>
-          <div className="ToDo-Container">
-            <input
-              type="text"
-              value={this.state.todo}
-              onChange={this.handleInput}
-              onKeyPress={this.handleKeyPress}
-            />
-
-            <button className="button todo-add" onClick={this.createNewToDoItem}>
-              ADD ITEM
-            </button>
-          </div>
-        </div>
-
+        
         {this.props.children}
+        
+        
       </ToDoContext.Provider>
     );
   }

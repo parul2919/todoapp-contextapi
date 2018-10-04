@@ -9,7 +9,7 @@ class Completed extends React.Component {
   render() {
     return (
       <ToDoContext.Consumer>
-        {({ list, deleteItem,startItem, completeItem }) =>
+        {({ list}) =>
           list.map((item, key) => {
             return (
                 <div className='completed'>{item.completed ? item.todo : ''}</div>
