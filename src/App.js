@@ -5,7 +5,7 @@ import "./../node_modules/bootstrap/dist/css/bootstrap.css";
 import './App.css';
 import {ToDoContext} from './toDoContext';
 import NewItem from './components/new';
-import Header from './components/header';
+import Header from './components/template/header';
 import ToDoList from './components/toDoList';
 import ToDoItems from './components/toDoItems';
 import Completed from './components/completed';

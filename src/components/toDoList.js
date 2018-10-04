@@ -98,7 +98,7 @@ class ToDoList extends Component {
                 handleKeyPress:this.handleKeyPress
         }}
       >
-        <h1 className="ToDo-Header">
+        <h1 className="bg-light p-4 mb-5">
             Simple To-Do App using React Context API
           </h1>
         
