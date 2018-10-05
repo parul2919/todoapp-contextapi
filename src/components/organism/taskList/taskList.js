@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-import {ToDoContext} from '../toDoContext.js';
+import {ToDoContext} from '../../../config/toDoContext';
 
-class ToDoList extends Component {
+class TaskList extends Component {
   constructor(props) {
     super(props);
 
@@ -10,28 +10,23 @@ class ToDoList extends Component {
       list: [
         {
           todo: "Create todo app", 
-          start:false,
-          completed:false,
+          status:"started"
         },
         {
           todo: "Write route based implementations",
-          start:false,
-          completed:false,
+          status:"completed"
         },
         {
           todo: "Mention Completed tasks",
-          start:true,
-          completed:true,
+          status:'started'
         },
         {
           todo: "Mention in progress tasks",
-          start:true,
-          completed:false,
+          status:'not started'
         },
         {
           todo: "Marks tasks differently",
-          start:true,
-          completed:false,
+          status:'not started'
         }
       ],
       todo: ""
@@ -44,8 +39,7 @@ class ToDoList extends Component {
         ...list,
         {
           todo: todo,
-          start:false,
-          completed:false,
+          status:'not started'
         }
       ],
       todo: ""
@@ -60,13 +54,13 @@ class ToDoList extends Component {
   
   startItem = (indexToStart, item) => {
     this.setState(({ list }) => ({
-      list: list.map((item,index) => (index === indexToStart) ? {...item, start: !list.start} : item )
+      list: list.map((item,index) => (index === indexToStart) ? {...item, status:'started'} : item )
     }));
   };
 
   completeItem = (indexToCmpt, item) => {
     this.setState(({ list }) => ({
-      list: list.map((item,index) => (index === indexToCmpt &&  item.start === true) ? {...item, completed: !list.completed} : item )
+      list: list.map((item,index) => (index === indexToCmpt &&  item.status === "started") ? {...item, status: "completed"} : item )
     }));
   };
 
@@ -110,4 +104,4 @@ class ToDoList extends Component {
   }
 }
 
-export default ToDoList;
+export default TaskList;

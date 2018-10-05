@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Node } from 'react';
-import {ToDoContext} from '../../toDoContext.js';
-import "../../style.css";
+import {ToDoContext} from '../../config/toDoContext';
+
 
 type Props = {
     className: string,
@@ -17,12 +17,13 @@ const Tasks = ({
     ...others
 }: Props): Node => {
   const props = {};
+    console.log("labelContent", labelContent);
   return (
         <ToDoContext.Consumer>
         {({ list}) =>
           list.map((item, key) => {
             return (
-                <div className={className}>{labelContent}</div>
+                <div className={className} key={key} >{labelContent === item.status ? item.todo : ""}</div>
             );
           })
         }

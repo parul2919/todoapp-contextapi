@@ -16,7 +16,7 @@ class Header extends Component {
                 <Link className="nav-link active" to="/" >Home</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link ml-4" to="/new" >New</Link>
+                <span className="nav-link ml-4" onClick={this.props.openModal} >New</span>
               </li>
               <li className="nav-item">
                 <Link className="nav-link ml-4" to="/inProgress">In Progress</Link>

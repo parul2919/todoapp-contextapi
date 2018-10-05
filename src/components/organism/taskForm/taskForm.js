@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from "react";
 import ReactDOM from "react-dom";
-import {ToDoContext} from '../toDoContext.js';
-import "../style.css";
+import {ToDoContext} from '../../../config/toDoContext';
 
-class NewItem extends Component {
+
+class TaskForm extends Component {
   
 
   render() {
@@ -37,7 +37,7 @@ class NewItem extends Component {
   }
 }
 
-export default NewItem;
+export default TaskForm;
 
 
 
