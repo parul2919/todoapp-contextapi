@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from "react";
 import ReactDOM from "react-dom";
-import {Link} from "react-router-dom";
 import {ToDoContext} from '../toDoContext.js';
+import RouteLink from'./atom/link.js';
+import Button from'./atom/button.js';
 import "../style.css";
 
 
@@ -14,22 +15,37 @@ class ToDoItems extends React.Component {
                   list.map((item, key) => {
                     return (
                       <div key={key}>
-                        <div className={item.completed ? 'completed d-inline-block col-7' : (item.start) ? 'started d-inline-block col-7' : 'd-inline-block col-7'}>{item.todo}</div>
-                        <button className="button todo-inprogress" onClick={startItem.bind(this, key, item)}> IN PROGRESS</button>
-                        <button className="button todo-complete" onClick={completeItem.bind(this, key, item)}> COMPLETE</button>
-                        <button className="button todo-delete" onClick={deleteItem.bind(this, key)}> REMOVE</button>       
+                            <div className={item.completed ? 'completed d-inline-block col-7' : (item.start) ? 'started d-inline-block col-7' : 'd-inline-block col-7'}>{item.todo}</div>
+                            <Button
+                                className="button todo-inprogress"
+                                labelContent="IN PROGRESS"
+                                onClick={startItem.bind(this, key, item)}
+                            />
+                            <Button
+                                className="button todo-complete"
+                                labelContent="COMPLETE"
+                                onClick={completeItem.bind(this, key, item)}
+                            />
+                            <Button
+                                className="button todo-delete"
+                                labelContent="REMOVE"
+                                onClick={deleteItem.bind(this, key)}
+                            />     
                       </div>
                     );
                   })
                 }
 
               </ToDoContext.Consumer>
-              <div className="link mt-5"> <Link className="btn btn-info d-inline-block" to="/new" >Create new task </Link> </div>
+              <RouteLink 
+                  wrapperClass="link mt-5"
+                  className="btn btn-info d-inline-block"
+                  labelContent="Create new task"
+                  route="/new"
+              />
           </div>
     );
   }
 }
 
 export default ToDoItems;
-
-
