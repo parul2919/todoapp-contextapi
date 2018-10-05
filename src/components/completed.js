@@ -8,19 +8,10 @@ import "../style.css";
 class Completed extends React.Component {
   render() {
     return (
-      <ToDoContext.Consumer>
-        {({ list}) =>
-          list.map((item, key) => {
-            return (
-                <div className='completed'>{item.completed ? item.todo : ''}</div>
-            );
-          })
-        }
-      </ToDoContext.Consumer>
+        <Tasks className="completed"/>
+      
     );
   }
 }
 
 export default Completed;
-
-
