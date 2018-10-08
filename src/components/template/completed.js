@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 import Tasks from '../molecule/tasks';
 
-class Completed extends React.Component {
+class Completed extends Component {
   render() {
     return (
         <Tasks className="completed" labelContent="completed"/> 

@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from "react";
-import ReactDOM from "react-dom";
 import {ToDoContext} from '../../../config/toDoContext';
 
 

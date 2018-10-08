@@ -1,13 +1,10 @@
-import React, { Component, Fragment } from "react";
-import ReactDOM from "react-dom";
-import {Link} from "react-router-dom";
+import React, { Component } from "react";
 import {ToDoContext} from '../../config/toDoContext';
-import RouteLink from'../atom/link.js';
 import Button from'../atom/button.js';
 
 
 
-class ToDoItems extends React.Component {
+class ToDoItems extends Component {
   render() {
     return (
         <div className="col-6 offset-3  text-left">
@@ -38,12 +35,10 @@ class ToDoItems extends React.Component {
                 }
 
               </ToDoContext.Consumer>
-              <RouteLink 
-                  wrapperClass="link mt-5"
+              <div 
                   className="btn btn-info d-inline-block"
-                  labelContent="Create new task"
-                  route="/new"
-              />
+                  onClick={this.props.openModal}
+              >New Task</div>
           </div>
     );
   }
