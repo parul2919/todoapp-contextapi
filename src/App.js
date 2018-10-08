@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import BrowserRouter from 'react-router-dom/BrowserRouter';
 import Loadable from 'react-loadable';
 import "./../node_modules/bootstrap/dist/css/bootstrap.css";
 import './App.css';
@@ -8,24 +9,31 @@ import TaskList from './components/organism/taskList/taskList';
 import Modal from "./components/organism/modal/modal";
 import './style.css'
 
+
 const Loading = () => <div>Loading...</div>;
 const HomeRoute = Loadable({
-  loader: () => import('./components/molecule/toDoItems'),
-  loading: Loading,
+  loader: () => import(/* webpackChunkName: "homepage" */'./components/molecule/toDoItems'),
+  loading: () => <div>loading...</div>,
+  modules: ['homepage'],
 });
 
 const CompletedRoute = Loadable({
-  loader: () => import('./components/template/completed'),
-  loading: Loading,
-});
-const InProgressRoute = Loadable({
-  loader: () => import('./components/template/inProgress'),
-  loading: Loading,
+  loader: () => import(/* webpackChunkName: "completedTasks" */'./components/molecule/toDoItems'),
+  loading: () => <div>loading...</div>,
+  modules: ['completedTasks'],
 });
 
+const InProgressRoute = Loadable({
+  loader: () => import(/* webpackChunkName: "inProgressRoutes" */'./components/molecule/toDoItems'),
+  loading: () => <div>loading...</div>,
+  modules: ['inProgressRoutes'],
+});
+
+
 const TaskFormLoadable = Loadable({
-  loader: () => import('./components/organism/taskForm/taskForm'),
+  loader: () => import(/* webpackChunkName: "dynamicLoading" */'./components/organism/taskForm/taskForm'),
   loading: () => <div>Loading...</div>,
+  modules: ['dynamicLoading'],
 });
 
 class App extends Component {
