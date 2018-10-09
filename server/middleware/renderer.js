@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
+import { StaticRouter } from 'react-router-dom';
 import Loadable from 'react-loadable';
 
 // read the manifest file
@@ -31,9 +32,12 @@ export default (req, res, next) => {
 
         // render the app as a string
         const html = ReactDOMServer.renderToString(
-            <Loadable.Capture report={m => modules.push(m)}>
-                <App/>
-            </Loadable.Capture>
+           // <StaticRouter location={req.url} context={context}> // need to pass as this is buggy without {context}
+            <StaticRouter location={req.url}>
+                <Loadable.Capture report={m => modules.push(m)}>
+                    <App/>
+                </Loadable.Capture>
+            </StaticRouter>
         );
 
         const extraChunks = extractAssets(manifest, modules)

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {Route, Switch } from "react-router-dom";
 import BrowserRouter from 'react-router-dom/BrowserRouter';
 import Loadable from 'react-loadable';
 import "./../node_modules/bootstrap/dist/css/bootstrap.css";
@@ -49,7 +49,6 @@ class App extends Component {
     
   render() {
     return (
-        <Router>
           <div className="App">
               <Header openModal={this.openModal} closeModal={this.closeModal}/>
               <TaskList>
@@ -67,7 +66,6 @@ class App extends Component {
               </TaskList>
               
           </div>
-        </Router>
     );
   }
   closeModal() {
