@@ -1,5 +1,6 @@
 import express from 'express';
 import Loadable from 'react-loadable';
+import List from '../data/data.js';
 
 import serverRenderer from './middleware/renderer';
 
@@ -9,6 +10,11 @@ const path = require("path");
 // initialize the application and create the routes
 const app = express();
 const router = express.Router();
+
+
+app.get('/todo/taskList', function (req, res) {
+  res.send(List)
+});
 
 // root (/) should always serve our server rendered page
 router.use('^/$', serverRenderer);
