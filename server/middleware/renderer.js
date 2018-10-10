@@ -23,17 +23,27 @@ export default (req, res, next) => {
     const filePath = path.resolve(__dirname, '..', '..', 'build', 'index.html');
 
     fs.readFile(filePath, 'utf8', (err, htmlData) => {
-        if (err) {
-            console.error('err', err);
-            return res.status(404).end()
-        }
-
         const modules = [];
+        const context = {};
+        
 
+        if (err) {
+            console.error('Something went wrong:', err);
+            return res.status(400).send('Oops, better luck next time!');
+          }
+
+          if (context.status === 404) {
+            return res.status(404).end()
+          }
+          if (context.url) {
+            return res.redirect(301, context.url);
+          }
+        
+        
         // render the app as a string
         const html = ReactDOMServer.renderToString(
            // <StaticRouter location={req.url} context={context}> // need to pass as this is buggy without {context}
-            <StaticRouter location={req.url}>
+            <StaticRouter location={req.url} context={context}>
                 <Loadable.Capture report={m => modules.push(m)}>
                     <App/>
                 </Loadable.Capture>
