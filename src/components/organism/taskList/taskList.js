@@ -7,32 +7,17 @@ class TaskList extends Component {
     super(props);
 
     this.state = {
-      list: [
-        {
-          todo: "Create todo app", 
-          status:"started"
-        },
-        {
-          todo: "Write route based implementations",
-          status:"completed"
-        },
-        {
-          todo: "Mention Completed tasks",
-          status:'started'
-        },
-        {
-          todo: "Mention in progress tasks",
-          status:'not started'
-        },
-        {
-          todo: "Marks tasks differently",
-          status:'not started'
-        }
-      ],
+      list: [],
       todo: ""
     };
   }
 
+  componentDidMount() {
+    fetch('http://localhost:3000/todo/taskList')
+      .then(response => response.json())
+      .then(data => this.setState({ list: data}));
+  }
+    
   createNewToDoItem = () => {
     this.setState(({ list, todo }) => ({
       list: [

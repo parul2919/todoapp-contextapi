@@ -1,5 +1,6 @@
 import express from 'express';
 import Loadable from 'react-loadable';
+import List from '../data/data.js';
 
 import serverRenderer from './middleware/renderer';
 
@@ -9,6 +10,10 @@ const path = require("path");
 // initialize the application and create the routes
 const app = express();
 const router = express.Router();
+
+app.get('/todo/taskList', function (req, res) {
+  res.send(List)
+});
 
 // other static resources should just be served as they are
 router.use(express.static(
