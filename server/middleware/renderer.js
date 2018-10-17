@@ -6,6 +6,7 @@ import Loadable from 'react-loadable';
 // read the manifest file
 import manifest from '../../build/asset-manifest.json';
 
+
 // function to map chunk names to assets
 const extractAssets = (assets, chunks) => Object.keys(assets)
     .filter(asset => chunks.indexOf(asset.replace('.js', '')) > -1)

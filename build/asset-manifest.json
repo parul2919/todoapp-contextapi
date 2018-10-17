@@ -1,10 +1,14 @@
 {
-  "dynamicLoading.js": "static/js/dynamicLoading.03ac26a3.chunk.js",
-  "dynamicLoading.js.map": "static/js/dynamicLoading.03ac26a3.chunk.js.map",
-  "homepage.js": "static/js/homepage.f61d61f5.chunk.js",
-  "homepage.js.map": "static/js/homepage.f61d61f5.chunk.js.map",
+  "completedTasks.js": "static/js/completedTasks.cc35dee5.chunk.js",
+  "completedTasks.js.map": "static/js/completedTasks.cc35dee5.chunk.js.map",
+  "dynamicLoading.js": "static/js/dynamicLoading.4046cfe5.chunk.js",
+  "dynamicLoading.js.map": "static/js/dynamicLoading.4046cfe5.chunk.js.map",
+  "homepage.js": "static/js/homepage.564d407e.chunk.js",
+  "homepage.js.map": "static/js/homepage.564d407e.chunk.js.map",
+  "inProgressRoutes.js": "static/js/inProgressRoutes.047807d2.chunk.js",
+  "inProgressRoutes.js.map": "static/js/inProgressRoutes.047807d2.chunk.js.map",
   "main.css": "static/css/main.9144a367.css",
   "main.css.map": "static/css/main.9144a367.css.map",
-  "main.js": "static/js/main.4ec4a0aa.js",
-  "main.js.map": "static/js/main.4ec4a0aa.js.map"
+  "main.js": "static/js/main.8407002a.js",
+  "main.js.map": "static/js/main.8407002a.js.map"
 }

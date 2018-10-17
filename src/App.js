@@ -18,13 +18,13 @@ const HomeRoute = Loadable({
 });
 
 const CompletedRoute = Loadable({
-  loader: () => import(/* webpackChunkName: "completedTasks" */'./components/molecule/toDoItems'),
+  loader: () => import(/* webpackChunkName: "completedTasks" */'./components/template/completed'),
   loading: () => <div>loading...</div>,
   modules: ['completedTasks'],
 });
 
 const InProgressRoute = Loadable({
-  loader: () => import(/* webpackChunkName: "inProgressRoutes" */'./components/molecule/toDoItems'),
+  loader: () => import(/* webpackChunkName: "inProgressRoutes" */'./components/template/inProgress'),
   loading: () => <div>loading...</div>,
   modules: ['inProgressRoutes'],
 });
